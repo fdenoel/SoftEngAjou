@@ -1,5 +1,6 @@
 package sweng.ajou.kr.heatingcontrolclient;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -36,6 +37,13 @@ public class CurrentTemperature extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         registerForContextMenu(listView);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(CurrentTemperature.this, EnviomentDetail.class));
+            }
+        });
 
     }
 
