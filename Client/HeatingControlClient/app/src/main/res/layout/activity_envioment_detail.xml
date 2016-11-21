@@ -39,6 +39,7 @@
             android:textColor="#000" />
 
         <Button
+            android:id="@+id/activity_envioment_detail_set_temp_manualy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/envioment_details_target_temp"

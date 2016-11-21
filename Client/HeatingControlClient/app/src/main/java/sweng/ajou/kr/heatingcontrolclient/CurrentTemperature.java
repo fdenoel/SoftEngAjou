@@ -27,7 +27,7 @@ public class CurrentTemperature extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         ListView listView = (ListView) findViewById(R.id.listView2);
-        List<Sensor> itemSensor = new ArrayList<>();
+        final List<Sensor> itemSensor = new ArrayList<>();
         itemSensor.add(new Sensor("Kitchen 1",(double)20.0,2));
         itemSensor.add(new Sensor("Kitchen 1",(double)20.0,2));
         itemSensor.add(new Sensor("Kitchen 1",(double)20.0,2));
@@ -41,7 +41,9 @@ public class CurrentTemperature extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(CurrentTemperature.this, EnviomentDetail.class));
+                Intent myIntent = new Intent(CurrentTemperature.this, EnviomentDetail.class);
+                myIntent.putExtra("name",itemSensor.get(i).getName());
+                startActivity(myIntent);
             }
         });
 
